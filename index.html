@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyderabad Edu - Discover Top Universities</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">
+                <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                Hyderabad<span>Edu</span>
+            </a>
+            
+            <div class="nav-links" id="navLinks">
+                <a href="#" class="active">Home</a>
+                <a href="#">Universities</a>
+                <a href="#">Courses</a>
+                <a href="#">Compare</a>
+                <a href="#">Admissions</a>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button class="btn btn-primary btn-sm" style="display: none;" id="loginBtn">Log In</button>
+                <button class="nav-hamburger" id="hamburgerBtn" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fa-solid fa-star"></i> #1 Education Portal in Telangana
+            </div>
+            <h1>Discover the Best <span>Universities</span> in Hyderabad</h1>
+            <p class="hero-sub">Explore top-rated colleges, compare courses, check fees, and find the perfect institution for your higher education journey.</p>
+            
+            <div class="hero-search-box">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" placeholder="Search for universities, courses, or locations...">
+                <button class="btn btn-primary">Search</button>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-num">45+</span>
+                    <span class="hero-stat-label">Universities</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-num">300+</span>
+                    <span class="hero-stat-label">Courses</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-num">10k+</span>
+                    <span class="hero-stat-label">Students Helped</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Popular Courses -->
+        <section class="section section-sm">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title">Popular Courses</h2>
+                        <p class="section-subtitle">Most sought-after programs in Hyderabad</p>
+                    </div>
+                    <a href="#" class="section-link">View All Courses <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="courses-grid">
+                    <div class="course-card">
+                        <div class="course-icon" style="background: #e0e7ff; color: #4f46e5;">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <div class="course-name">B.Tech CSE</div>
+                        <div class="course-count">24 Colleges</div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-icon" style="background: #fef3c7; color: #d97706;">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                        <div class="course-name">MBA</div>
+                        <div class="course-count">18 Colleges</div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-icon" style="background: #d1fae5; color: #059669;">
+                            <i class="fa-solid fa-stethoscope"></i>
+                        </div>
+                        <div class="course-name">MBBS</div>
+                        <div class="course-count">8 Colleges</div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-icon" style="background: #ffe4e6; color: #e11d48;">
+                            <i class="fa-solid fa-flask"></i>
+                        </div>
+                        <div class="course-name">B.Pharmacy</div>
+                        <div class="course-count">12 Colleges</div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-icon" style="background: #e0f2fe; color: #0284c7;">
+                            <i class="fa-solid fa-building-columns"></i>
+                        </div>
+                        <div class="course-name">BBA</div>
+                        <div class="course-count">15 Colleges</div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-icon" style="background: #f3e8ff; color: #9333ea;">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                        </div>
+                        <div class="course-name">LLB</div>
+                        <div class="course-count">6 Colleges</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Universities -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title">Top Universities</h2>
+                        <p class="section-subtitle">Highest rated institutions based on academics, placement, and infrastructure</p>
+                    </div>
+                    <a href="#" class="section-link">View All Universities <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="uni-grid" id="universityContainer">
+                    <!-- Cards will be populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Hyderabad -->
+        <section class="section bg-secondary">
+            <div class="container">
+                <div class="section-header text-center" style="justify-content: center; flex-direction: column;">
+                    <h2 class="section-title">Why Study in Hyderabad?</h2>
+                    <p class="section-subtitle" style="margin-top: 0.5rem;">The ultimate destination for higher education in India</p>
+                </div>
+                
+                <div class="why-grid">
+                    <div class="why-card">
+                        <div class="why-icon" style="color: var(--primary);">
+                            <i class="fa-solid fa-city"></i>
+                        </div>
+                        <h3 class="why-title">IT Hub of India</h3>
+                        <p class="why-desc">Home to HITEC City, offering immense internship and placement opportunities with top global tech giants.</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon" style="color: var(--secondary);">
+                            <i class="fa-solid fa-money-bill-trend-up"></i>
+                        </div>
+                        <h3 class="why-title">Affordable Living</h3>
+                        <p class="why-desc">Compared to other metro cities, Hyderabad offers a highly affordable cost of living for students.</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon" style="color: var(--accent);">
+                            <i class="fa-solid fa-book-open-reader"></i>
+                        </div>
+                        <h3 class="why-title">Quality Education</h3>
+                        <p class="why-desc">Hosts some of the country's most prestigious institutions like IIT, IIIT, UoH, and Osmania University.</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon" style="color: var(--success);">
+                            <i class="fa-solid fa-bowl-food"></i>
+                        </div>
+                        <h3 class="why-title">Rich Culture</h3>
+                        <p class="why-desc">A perfect blend of historical heritage, diverse culture, and world-famous cuisine to explore.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Start Your Journey?</h2>
+                <p>Create an account to save favorites, compare universities, and get personalized recommendations.</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-white btn-lg">Sign Up Now</button>
+                    <button class="btn btn-outline-white btn-lg">Contact Counselors</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="logo">HyderabadEdu</div>
+                    <p>Your trusted companion for discovering and comparing the best universities and colleges across Hyderabad and Telangana.</p>
+                    <div class="mt-2" style="display: flex; gap: 1rem; font-size: 1.2rem; color: #fff;">
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Top Universities</a></li>
+                        <li><a href="#">Courses Offered</a></li>
+                        <li><a href="#">Admission Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Top Courses</h5>
+                    <ul>
+                        <li><a href="#">Engineering (B.Tech)</a></li>
+                        <li><a href="#">Management (MBA)</a></li>
+                        <li><a href="#">Medical (MBBS)</a></li>
+                        <li><a href="#">Arts & Science</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>&copy; 2026 Hyderabad Edu. All rights reserved.</div>
+                <div>Designed for students by <a href="#">NexusHR Team</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

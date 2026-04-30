@@ -1,2 +1,11 @@
-/hyderabad-edu-react/server/.env
+# Environment variables (never commit secrets)
+.env
+.env.local
+.env.*
 
+# Node modules (can be reinstalled with npm install)
+node_modules/
+
+# React build
+hyderabad-edu-react/server/.env
+hyderabad-edu-react/node_modules/
