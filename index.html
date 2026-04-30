@@ -29,7 +29,7 @@
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
                     <i class="fa-solid fa-moon"></i>
                 </button>
-                <button class="btn btn-primary btn-sm" style="display: none;" id="loginBtn">Log In</button>
+                <button class="btn btn-primary btn-sm" id="loginBtn" onclick="alert('Login coming soon! Check out the new React app.')">Log In</button>
                 <button class="nav-hamburger" id="hamburgerBtn" aria-label="Menu">
                     <span></span><span></span><span></span>
                 </button>
@@ -72,14 +72,14 @@
     <!-- Main Content -->
     <main>
         <!-- Popular Courses -->
-        <section class="section section-sm">
+        <section class="section section-sm" id="courses">
             <div class="container">
                 <div class="section-header">
                     <div>
                         <h2 class="section-title">Popular Courses</h2>
                         <p class="section-subtitle">Most sought-after programs in Hyderabad</p>
                     </div>
-                    <a href="#" class="section-link">View All Courses <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#" onclick="window.open('http://localhost:5174/', '_blank'); return false;" class="section-link">View All Courses <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
                 
                 <div class="courses-grid">
@@ -130,14 +130,14 @@
         </section>
 
         <!-- Top Universities -->
-        <section class="section">
+        <section class="section" id="universities">
             <div class="container">
                 <div class="section-header">
                     <div>
                         <h2 class="section-title">Top Universities</h2>
                         <p class="section-subtitle">Highest rated institutions based on academics, placement, and infrastructure</p>
                     </div>
-                    <a href="#" class="section-link">View All Universities <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#" onclick="window.open('http://localhost:5174/colleges', '_blank'); return false;" class="section-link">View All Universities <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
                 
                 <div class="uni-grid" id="universityContainer">
@@ -147,9 +147,9 @@
         </section>
 
         <!-- Why Choose Hyderabad -->
-        <section class="section bg-secondary">
+        <section class="section bg-secondary" id="compare">
             <div class="container">
-                <div class="section-header text-center" style="justify-content: center; flex-direction: column;">
+                <div class="section-header text-center" style="justify-content: center; flex-direction: column; align-items: center;">
                     <h2 class="section-title">Why Study in Hyderabad?</h2>
                     <p class="section-subtitle" style="margin-top: 0.5rem;">The ultimate destination for higher education in India</p>
                 </div>
@@ -188,13 +188,13 @@
         </section>
 
         <!-- CTA Section -->
-        <section class="cta-section">
+        <section class="cta-section" id="admissions">
             <div class="container">
                 <h2>Ready to Start Your Journey?</h2>
                 <p>Create an account to save favorites, compare universities, and get personalized recommendations.</p>
                 <div class="cta-buttons">
-                    <button class="btn btn-white btn-lg">Sign Up Now</button>
-                    <button class="btn btn-outline-white btn-lg">Contact Counselors</button>
+                    <button class="btn btn-white btn-lg" onclick="alert('Sign Up functionality coming soon! Try the new React app on port 5174.')">Sign Up Now</button>
+                    <button class="btn btn-outline-white btn-lg" onclick="window.location.href='mailto:counselors@hyderabadedu.com'">Contact Counselors</button>
                 </div>
             </div>
         </section>
@@ -208,43 +208,43 @@
                     <div class="logo">HyderabadEdu</div>
                     <p>Your trusted companion for discovering and comparing the best universities and colleges across Hyderabad and Telangana.</p>
                     <div class="mt-2" style="display: flex; gap: 1rem; font-size: 1.2rem; color: #fff;">
-                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
                     </div>
                 </div>
                 <div class="footer-col">
                     <h5>Quick Links</h5>
                     <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Top Universities</a></li>
-                        <li><a href="#">Courses Offered</a></li>
-                        <li><a href="#">Admission Guide</a></li>
+                        <li><a href="#" onclick="window.open('http://localhost:5174/', '_blank'); return false;">About Us</a></li>
+                        <li><a href="#" onclick="window.open('http://localhost:5174/colleges', '_blank'); return false;">Top Universities</a></li>
+                        <li><a href="#" onclick="window.open('http://localhost:5174/courses', '_blank'); return false;">Courses Offered</a></li>
+                        <li><a href="#" onclick="window.open('http://localhost:5174/admissions', '_blank'); return false;">Admission Guide</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h5>Top Courses</h5>
                     <ul>
-                        <li><a href="#">Engineering (B.Tech)</a></li>
-                        <li><a href="#">Management (MBA)</a></li>
-                        <li><a href="#">Medical (MBBS)</a></li>
-                        <li><a href="#">Arts & Science</a></li>
+                        <li><a href="#" onclick="filterUniversities('Engineering'); return false;">Engineering (B.Tech)</a></li>
+                        <li><a href="#" onclick="filterUniversities('MBA'); return false;">Management (MBA)</a></li>
+                        <li><a href="#" onclick="filterUniversities('MBBS'); return false;">Medical (MBBS)</a></li>
+                        <li><a href="#" onclick="filterUniversities('Arts'); return false;">Arts & Science</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h5>Support</h5>
                     <ul>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#" onclick="window.open('http://localhost:5174/contact', '_blank'); return false;">Contact Us</a></li>
+                        <li><a href="#" onclick="window.open('http://localhost:5174/faqs', '_blank'); return false;">FAQs</a></li>
+                        <li><a href="#" onclick="window.open('http://localhost:5174/privacy', '_blank'); return false;">Privacy Policy</a></li>
+                        <li><a href="#" onclick="window.open('http://localhost:5174/terms', '_blank'); return false;">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
                 <div>&copy; 2026 Hyderabad Edu. All rights reserved.</div>
-                <div>Designed for students by <a href="#">NexusHR Team</a></div>
+                <div>Designed for students by <a href="https://nexushr.com" target="_blank" style="color: var(--primary-light);">NexusHR Team</a></div>
             </div>
         </div>
     </footer>

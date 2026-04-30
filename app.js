@@ -9,7 +9,27 @@ document.addEventListener('DOMContentLoaded', () => {
     initSearch();
     loadUniversities();
     createDetailModal();
+    initScrollAnimations();
 });
+
+// ========== SCROLL ANIMATIONS ==========
+function initScrollAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    const targets = document.querySelectorAll('.course-card, .why-card, .section-title, .section-subtitle');
+    targets.forEach(t => {
+        t.classList.add('reveal');
+        observer.observe(t);
+    });
+    
+    window.scrollObserver = observer;
+}
 
 // ========== THEME TOGGLE ==========
 function initTheme() {
@@ -37,10 +57,10 @@ function initHamburger() {
 function initNavLinks() {
     const sectionMap = {
         'Home':         '.hero',
-        'Universities': '#universityContainer',
-        'Courses':      '.courses-grid',
-        'Compare':      '.cta-section',
-        'Admissions':   '.cta-section',
+        'Universities': '#universities',
+        'Courses':      '#courses',
+        'Compare':      '#compare',
+        'Admissions':   '#admissions',
     };
 
     document.querySelectorAll('.nav-links a').forEach(link => {
@@ -50,13 +70,18 @@ function initNavLinks() {
             const target = sectionMap[label];
             if (target) {
                 const el = document.querySelector(target);
-                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (el) {
+                    const navHeight = document.querySelector('.navbar').offsetHeight;
+                    const y = el.getBoundingClientRect().top + window.scrollY - navHeight;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                }
             }
             // Update active link
             document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
             link.classList.add('active');
             // Close mobile menu
-            document.getElementById('navLinks').classList.remove('open');
+            const navMenu = document.getElementById('navLinks');
+            if(navMenu) navMenu.classList.remove('open');
         });
     });
 }
@@ -72,18 +97,11 @@ function initSearch() {
 }
 
 function filterUniversities(query) {
-    const q = query.toLowerCase().trim();
-    const filtered = q
-        ? allUniversities.filter(u =>
-            u.name.toLowerCase().includes(q) ||
-            u.location.toLowerCase().includes(q) ||
-            (u.tags || []).some(t => t.toLowerCase().includes(q))
-          )
-        : allUniversities;
-    renderCards(filtered);
+    const q = query.trim();
     if (q) {
-        const section = document.querySelector('#universityContainer');
-        if (section) section.scrollIntoView({ behavior: 'smooth' });
+        window.open(`http://localhost:5174/colleges?search=${encodeURIComponent(q)}`, '_blank');
+    } else {
+        window.open(`http://localhost:5174/colleges`, '_blank');
     }
 }
 
@@ -185,6 +203,21 @@ function renderCards(list) {
                 : '<i class="fa-regular fa-heart"></i>';
         });
     });
+
+    // Compare toggle
+    container.querySelectorAll('.compare-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+            alert('Compare feature coming soon to the React app! Stay tuned.');
+        });
+    });
+
+    // Apply scroll animation to new cards
+    if (window.scrollObserver) {
+        container.querySelectorAll('.uni-card').forEach(card => {
+            card.classList.add('reveal');
+            window.scrollObserver.observe(card);
+        });
+    }
 }
 
 // ========== DETAIL MODAL ==========
@@ -285,8 +318,8 @@ function openDetailModal(uni) {
         <div class="modal-facilities">${facilitiesHTML}</div>
 
         <div class="modal-actions">
-            <button class="btn btn-primary">Apply Now</button>
-            <button class="btn btn-outline">Download Brochure</button>
+            <button class="btn btn-primary" onclick="window.open('http://localhost:5174/', '_blank')">Apply Now</button>
+            <button class="btn btn-outline" onclick="window.open('https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf', '_blank')">Download Brochure</button>
         </div>
     `;
 
