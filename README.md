@@ -38,7 +38,8 @@ npm run dev
 ```bash
 cd hyderabad-edu-react/server
 npm install
-copy .env.example .env
+copy .env.example .env  # Windows Command Prompt
+# cp .env.example .env  # macOS/Linux
 node index.js
 ```
 
@@ -55,3 +56,7 @@ JWT_SECRET=your_jwt_secret
 - The frontend and backend are stored in the same repository.
 - The backend requires a valid MongoDB connection string before it can start.
 - The tracked `.env` file has been replaced with `.env.example` so secrets are not published.
+
+## Review checklist
+
+Verify registration, login, search, comparison and favorites against a local test database. Use a strong local JWT secret and never commit real credentials. University data and fees should be independently verified before making education decisions.
